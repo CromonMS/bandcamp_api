@@ -71,6 +71,12 @@ module Bandcamp
 
     def type req_type
       self.path = case req_type
+                  when :account
+                    '/account/1/my_bands'
+                  when :sales_report
+                    '/sales/1/sales_report'
+                  when :merch_orders
+                    '/'
                   when :track
                     '/api/track/3/info'
                   when :album
@@ -117,7 +123,6 @@ module Bandcamp
     def get uri
       Net::HTTP.get(uri)
     end
-
   end
 
   class UnknownTypeError < StandardError; end

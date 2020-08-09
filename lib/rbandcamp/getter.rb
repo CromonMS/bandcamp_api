@@ -5,9 +5,13 @@ require 'bandcamp/request'
 
 module Bandcamp
   class Getter
-
     def initialize request
       @request = request
+    end
+
+    def account
+      response = @request.account
+      response.nil? nil : Account.new(response)
     end
 
     def track track_id
@@ -56,6 +60,6 @@ module Bandcamp
         band(response["band_id"])
       end
     end
-
   end
 end
+# curl --request POST --url 'https://bandcamp.com/oauth_token' --data 'grant_type=client_credentials' --data-urlencode 'client_id=309' --data-urlencode 'client_secret=oR1pvEjFyTszXa3ylHCpTXE4WbuJJGGbP1pfAu4HHh8='

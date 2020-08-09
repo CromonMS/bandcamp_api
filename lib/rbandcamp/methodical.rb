@@ -1,6 +1,5 @@
 module Bandcamp
   module Methodical
-
     def to_methods hash
       eigenclass = class << self; self; end
       hash.each_pair do |key, val|

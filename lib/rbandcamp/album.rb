@@ -23,6 +23,5 @@ module Bandcamp
     def to_json
       MultiJson.encode @album_hash
     end
-
   end
 end
